@@ -1,0 +1,91 @@
+/* Join.css */
+
+/* 페이지 전체 중앙 정렬 */
+.join-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f7f8;
+  font-family: 'Arial', sans-serif;
+}
+
+/* 섹션 박스 */
+.join-page section {
+  background-color: #fff;
+  padding: 40px 50px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+/* 제목 */
+.join-page h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* 폼 요소 */
+.join-page form p {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* label */
+.join-page label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* input */
+.join-page input[type="text"],
+.join-page input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.join-page input[type="text"]:focus,
+.join-page input[type="password"]:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* 버튼 */
+.join-page button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.join-page button:hover {
+  background-color: #45a049;
+}
+
+/* 에러 / 성공 메시지 */
+.join-page p[style*="color:red"] {
+  margin-top: 10px;
+  font-size: 14px;
+  color: red;
+  text-align: center;
+}
+
+.join-page p[style*="color:green"] {
+  margin-top: 10px;
+  font-size: 14px;
+  color: green;
+  text-align: center;
+}
