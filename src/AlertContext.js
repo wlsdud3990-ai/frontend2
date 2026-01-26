@@ -1,36 +1,30 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 export const AlertContext = createContext();
 
 export function AlertProvider({ children }) {
-  const [noodleCount, setNoodleCount] = useState(0);
+  const [goodsCount, setGoodsCount] = useState(0);
+  const [fruitsCount, setFruitsCount] = useState(0);
+  const [bookstoreCount, setBookstoreCount] = useState(0);
   const [questionCount, setQuestionCount] = useState(0);
-  const [bookstoreCount, setBookStoreCount] = useState(0);
-  const [userCount, setUserCount] = useState(0);
 
-  // 🔔 알림 상태
-  const [alert, setAlert] = useState({
-    message: '',
-    type: '' // success | error
-  });
-
-  // 🔔 알림 표시 함수 (전역)
-  const showAlert = (message, type = 'success') => {
-    setAlert({ message, type });
-
-    // 3초 후 자동으로 알림 제거
-    setTimeout(() => {
-      setAlert({ message: '', type: '' });
-    }, 3000);
-  };
+  //페이지 로딩시 1번만 데이터 불러옴.
+  useEffect(()=>{
+    axios.get('http://localhost:9070/goods')
+    .then(res=>setGoodsCount(res.data.length));
+    axios.get('http://localhost:9070/fruits')
+    .then(res=>setFruitsCount(res.data.length));
+    axios.get('http://localhost:9070/bookstore')
+    .then(res=>setBookstoreCount(res.data.length));
+    axios.get('http://localhost:9070/question')
+    .then(res=>setQuestionCount(res.data.length));
+  },[]);
 
   return (
-    <AlertContext.Provider
-      value={{
-        bookstoreCount, noodleCount, setNoodleCount, questionCount, setQuestionCount, serCount, setUserCount,
-        showAlert // ✅ 반드시 내려줘야 함
-      }}
-    >
+    <AlertContext.Provider value={{ 
+      goodsCount, setGoodsCount, fruitsCount, setFruitsCount, bookstoreCount, setBookstoreCount, questionCount, setQuestionCount
+    }}>
       {children}
     </AlertContext.Provider>
   );
