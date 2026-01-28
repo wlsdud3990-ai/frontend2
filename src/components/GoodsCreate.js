@@ -27,7 +27,7 @@ function GoodsCreate(props) {
   const handleSubmit=(e)=>{
     e.preventDefault(); //새로고침 막기
 
-    axios.post('http://localhost:9070/goods', form)
+    axios.post('https://port-0-backend-express-server-mkvwe5rdd1931a0a.sel3.cloudtype.app/goods', form)
     .then(()=>{ //통신이 성공하면
       alert('상품이 등록 완료 되었습니다.');
       navigate('/goods'); //상품목록 페이지로 이동하기
@@ -66,5 +66,6 @@ function GoodsCreate(props) {
     </main>
   );
 }
+
 
 export default GoodsCreate;
