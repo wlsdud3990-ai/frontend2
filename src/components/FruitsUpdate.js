@@ -21,7 +21,7 @@ function FruitsUpdate(props) {
   //콤포넌트가 마운트 될때 해당 num값에 데이터를 조회하여 출력함.
 
   useEffect(()=>{
-    axios.get(`http://localhost:9070/fruits/${num}`)
+    axios.get(`https://port-0-backend-express-server-mkvwe5rdd1931a0a.sel3.cloudtype.app/fruits/${num}`)
     //성공이면
     .then(res=>{
       console.log('서버 응답 값 : ', res.data);
@@ -123,5 +123,6 @@ function FruitsUpdate(props) {
     </main>
   );
 }
+
 
 export default FruitsUpdate;
