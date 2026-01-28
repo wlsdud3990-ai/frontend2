@@ -23,7 +23,7 @@ function FruitsComponent() {
     e.preventDefault();
 
     axios
-      .post('http://localhost:9070/fruits', form)
+      .post('https://port-0-backend-express-server-mkvwe5rdd1931a0a.sel3.cloudtype.app/fruits', form)
       .then(() => {
         alert('상품이 정상적으로 등록 완료 되었습니다.');
         navigate('/fruits');
@@ -90,3 +90,4 @@ function FruitsComponent() {
 }
 
 export default FruitsComponent;
+
