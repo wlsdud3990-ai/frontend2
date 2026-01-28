@@ -33,7 +33,7 @@ function Join(props) {
     }
 
     try{ //DB서버와 통신이 잘되면 POST방식으로 ID, PW를 넘긴다
-      await axios.post('http://localhost:9070/register',{
+      await axios.post('https://port-0-backend-express-server-mkvwe5rdd1931a0a.sel3.cloudtype.app/register',{
         username:form.username,
         password:form.password
       });
@@ -100,5 +100,6 @@ function Join(props) {
     </main>
   );
 }
+
 
 export default Join;
